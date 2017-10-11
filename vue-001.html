@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- <script src="https://cdn.bootcss.com/vue/2.4.2/vue.js"></script> -->
+    <script src="vue.js"></script>
+    <style> 
+    .class1{
+        background-color: #444;
+        color: #eee;
+    }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p>{{message}}</p>
+    </div>
+    <div id="app1">
+        <div v-html="m1"></div>
+    </div>
+    <div id="app2">
+        <label for="r1">修改颜色</label>
+        <input type="checkbox" id="r1" v-model='class1'>
+        <br><br>
+        <div v-bind:class="{'class1':class1}">
+            directiva v-bind:class
+        </div>
+    </div>
+
+    <div id="app3">
+        {{5+5}}<br>
+        {{ok ? 'YES' : 'NO'}}<br>
+        {{message3.split('').reverse().join('') }}
+        <div v-bind:id=" 'list-' + id"> 关羽 张飞</div>
+    </div>
+    <div id="app4">
+        <p v-if="seen">现在你看到我</p>
+    </div>
+    <div id="app5">
+        <pre>
+            <a v-bind:href="url">Vow cpmpany</a>
+        </pre>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                message: 'Hello Vue.js!'
+            }
+        });
+        new Vue({
+            el:'#app1',
+            data:{
+                m1: '<h1> 上海恒兆</h1>'
+            }
+        });
+        new Vue({
+            el:'#app2',
+            data:{
+                class1:false
+            }
+        });
+        new Vue({
+            el:'#app3',
+            data:{
+                ok:true,
+                message3:'Lontri',
+                id:1
+            }
+        });
+        new Vue({
+            el:'#app4',
+            data:{
+                seen:true
+            }
+        })
+        new Vue({
+            el:'#app5',
+            data:{
+                url:'http://www.qq.com'
+            }
+        })
+    </script>
+</body>
+</html>
