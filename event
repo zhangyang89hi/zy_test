@@ -1,0 +1,16 @@
+```
+获得event对象兼容性写法 
+event || (event = window.event);
+
+获得target兼容型写法 
+event.target||event.srcElement
+
+阻止浏览器默认行为兼容性写法 
+event.preventDefault ? event.preventDefault() : (event.returnValue = false);
+
+阻止冒泡写法 
+event.stopPropagation ? event.stopPropagation() : (event.cancelBubble = true);
+
+注册和删除事件方法的形式
+
+```
